@@ -50,3 +50,20 @@ let car = {
 }
 cars.push(car);
 console.log('push example ', cars);
+// --- Add a new object in the middle - Array.splice
+// To add an object in the middle, use Array.splice. This function is very handy as it can also remove items.
+/*
+Array.splice(
+  {index where to start},
+  {how many items to remove},
+  {items to add}
+);
+*/
+let car = {
+    "color": "red",
+    "type": "cabrio",
+    "registration": new Date('2016-05-02'),
+    "capacity": 2
+}
+cars.splice(4, 0, car);
+console.log('splice example ', cars);
