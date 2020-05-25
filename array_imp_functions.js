@@ -3,16 +3,16 @@ console.log('show all important array functions ');
 // Array of Cars
 let cars = [
     {
-      "color": "purple",
-      "type": "minivan",
-      "registration": new Date('2017-01-03'),
-      "capacity": 7
+        "color": "purple",
+        "type": "minivan",
+        "registration": new Date('2017-01-03'),
+        "capacity": 7
     },
     {
-      "color": "red",
-      "type": "station wagon",
-      "registration": new Date('2018-03-03'),
-      "capacity": 5
+        "color": "red",
+        "type": "station wagon",
+        "registration": new Date('2018-03-03'),
+        "capacity": 5
     },
     {
         "color": "blue",
@@ -28,9 +28,9 @@ let cars = [
     },
 ];
 
-console.log( cars );
+console.log(cars);
 
-// Add a new object at the start - Array.unshift
+// --- Add a new object at the start - Array.unshift
 let car = {
     "color": "red",
     "type": "cabrio",
@@ -39,5 +39,14 @@ let car = {
 }
 
 cars.unshift(car);
+console.log('unshift example ', cars);
 
-console.log( ' unshift example ' , cars );
+// --- Add a new object at the end - Array.push
+let car = {
+    "color": "red",
+    "type": "cabrio",
+    "registration": new Date('2016-05-02'),
+    "capacity": 2
+}
+cars.push(car);
+console.log('push example ', cars);
