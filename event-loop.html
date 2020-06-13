@@ -1,0 +1,268 @@
+<style>
+
+.text-center {
+  text-align: center;
+}
+
+.event-loop, .event-loop * {
+  box-sizing: border-box;
+}
+
+.event-loop {
+  position: relative;
+  width: 530px;
+  min-height: 300px;
+  left: 50%;
+  padding: 40px 10px 10px 50px;
+  margin-top: 30px;
+  border: 2px dotted;
+  transform: translateX(-50%);
+}
+.event-loop:before {
+  content: "Event Loop";
+  font-size: 24px;
+  font-weight: bold;
+  position: absolute;
+  left: -20px;
+  top: 50%;
+  transform: translate(-100%, -50%);
+}
+
+.event-loop__js {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  padding: 20px 4px 10px;
+  border: 2px dotted;
+}
+.event-loop__js:before {
+  content: 'JS';
+  position: absolute;
+  background: yellow;
+  width: 20px;
+  height: 20px;
+  padding: 10px 0 0 10px;
+  font-weight: bold;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.event-loop__js .js-column {
+  position: relative;
+  float: left;
+  width: 45%;
+  height: 100%;
+  margin: 4px;
+  padding-top: 5px;
+  text-align: center;
+  border: 1px solid;
+  border-bottom: 0;
+}
+.event-loop__js .js__heap:before, .event-loop__js .js__heap:after, .event-loop__js .js__heap .heap__elem:before, .event-loop__js .js__heap .heap__elem:after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: #2196F3;
+}
+.event-loop__js .js__heap:before {
+  left: 15%;
+  top: 40%;
+}
+.event-loop__js .js__heap:after {
+  top: 55%;
+  background: red;
+}
+.event-loop__js .js__heap .heap__elem:before {
+  background: #009688;
+  top: 30%;
+  right: 15%;
+}
+.event-loop__js .js__heap .heap__elem:after {
+  background: #9C27B0;
+  bottom: 15%;
+  left: 26%;
+}
+.event-loop__js .stack__elems {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  bottom: 0;
+}
+.event-loop__js .stack__elem {
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  background: yellow;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.web-apis {
+  position: absolute;
+  min-width: 200px;
+  text-align: center;
+  right: 10px;
+  top: 40px;
+}
+.web-apis .api-elem {
+  background: #FF9800;
+  line-height: 30px;
+  margin: 5px;
+}
+.web-apis .arrow {
+  right: auto;
+  top: auto;
+  bottom: -25%;
+  transform: translate(50%, 100%) rotate(90deg);
+}
+
+.event-loop-name {
+  padding: 10px 20px;
+}
+.event-loop-name svg {
+  vertical-align: middle;
+}
+
+.queue {
+  position: relative;
+  width: 70%;
+  left: 30%;
+  border: 1px solid;
+  padding: 10px;
+}
+.queue:before {
+  content: "Callback Queue";
+  position: absolute;
+  left: -10px;
+  top: 50%;
+  transform: translate(-100%, -50%);
+}
+.queue .queue-item {
+  float: left;
+  padding: 16px;
+  background: yellow;
+  margin-right: 10px;
+}
+
+.clearfix {
+  clear: both;
+  height: 0;
+  visibility: hidden;
+}
+
+.arrow {
+  position: absolute;
+  width: 80px;
+  height: 4px;
+  background: black;
+  right: 10px;
+  top: 60%;
+  transform: translateX(100%) rotate(-36deg);
+  z-index: 1;
+}
+.arrow:before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  right: 0;
+  top: 50%;
+  border: 10px solid transparent;
+  border-left-color: black;
+  transform: translate(100%, -50%);
+}
+
+@-webkit-keyframes rotating /* Safari and Chrome */ {
+  from {
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotating {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+.rotating {
+  -webkit-animation: rotating 2s linear infinite;
+  -moz-animation: rotating 2s linear infinite;
+  -ms-animation: rotating 2s linear infinite;
+  -o-animation: rotating 2s linear infinite;
+  animation: rotating 2s linear infinite;
+}
+
+
+
+</style>
+<div class="event-loop">
+    <div class="event-loop__js">
+      <div class="arrow"></div>
+      <div class="js-column js__heap">
+        Heap
+        <div class="heap__elem">
+        </div>
+      </div>
+      <div class="js-column js__stack">
+        Stack
+        <div class="stack__elems">
+          <div class="stack__elem">
+            Bar
+          </div>
+          <div class="stack__elem">
+            Baz
+          </div>
+          <div class="stack__elem">
+            Foo
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="web-apis">
+      WebAPIs </br></br>
+      <div class="arrow"></div>
+      <div class="api-elem">
+        DOM (document)
+      </div>
+      <div class="api-elem">
+        ajax (XMLHttpRequest)
+      </div>
+      <div class="api-elem">
+        setTimeout
+      </div>
+    </div>
+    <div class="event-loop-name">
+      Event Loop
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 18 18" class="rotating">       <path d="M9 13.5c-2.49 0-4.5-2.01-4.5-4.5S6.51 4.5 9 4.5c1.24 0 2.36.52 3.17 1.33L10 8h5V3l-1.76 1.76C12.15 3.68 10.66 3 9 3 5.69 3 3.01 5.69 3.01 9S5.69 15 9 15c2.97 0 5.43-2.16 5.9-5h-1.52c-.46 2-2.24 3.5-4.38 3.5z"/>
+      </svg>
+    </div>
+
+    <div class="callback-queue">
+      <div class="queue">
+        <div class="queue-item">
+          onClick
+        </div>
+        <div class="queue-item">
+          onLoad
+        </div>
+        <div class="clearfix">.</div>
+      </div>
+    <div>
+  </div>
